@@ -1,6 +1,9 @@
-FROM node:alpine
-WORKDIR /app
+FROM node:latest
+
+WORKDIR /usr/src/app
+
 COPY . .
-RUN npm i
-RUN npm install react-scripts -g
-CMD ["npm", "run", "start"]
+
+RUN npm install
+
+CMD ["npm", "start"]

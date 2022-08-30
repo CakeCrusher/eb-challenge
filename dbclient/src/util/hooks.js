@@ -17,8 +17,10 @@ export const fetchData = async (
     );
   }
   console.log("offset", _data.length);
-  const newData = await result.json();
+  let newData = await result;
   console.log("data due to stationId", newData);
+  console.log("data due to stationId body", newData.body);
+  newData = await newData.json();
   if (loadMore) {
     _setData([..._data, ...newData]);
   } else {

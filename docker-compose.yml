@@ -34,7 +34,7 @@ services:
   client:
     stdin_open: true
     environment:
-      BACKEND_URL: http://api:3001
+      REACT_APP_BACKEND_URL: http://localhost:3001
     ports:
       - 3000:3000
     build:
