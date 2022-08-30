@@ -37,3 +37,7 @@
 
 - Was not too familiar with ftp system for fetching files.
 - Docker wasnt nice tonight.
+
+### All art property of EnergyBot
+
+😬
