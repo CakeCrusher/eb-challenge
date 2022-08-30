@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 
+// Initialized the climates table in the database and adds an id column.
 module.exports = {
   up: async ({ context: queryInterface }) => {
     await queryInterface.createTable("climates", {

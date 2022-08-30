@@ -1,11 +1,9 @@
-const uploadToTable = require("../util/tableUpload");
 const Climate = require("../models/climate");
 const { sequelize } = require("../util/db");
 
+// Populates the climates table with the 2017 climate data
 module.exports = {
   up: async ({ context: queryInterface }) => {
-    // await uploadToTable(queryInterface, Climate);
-    // get current working directory
     const cwd = process.cwd();
     await sequelize.query(`COPY climates(
       station_id,

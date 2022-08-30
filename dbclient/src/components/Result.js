@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
-// stationId
-// date
-// element
-// dataValue
-// mFlag
-// qFlag
-// sFlag
-// obsTime
+import React from "react";
+
+// individual rows of the data table
 function Result({ dataItem, setStationId }) {
   return (
     <tr>

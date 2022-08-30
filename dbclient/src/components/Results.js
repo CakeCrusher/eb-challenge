@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Result from "./Result";
 
+// wraps the individual rows of the data table
 function Results({ data, setStationId }) {
   return (
     <div className="App">

@@ -1,3 +1,4 @@
+// overarching function for fetching data from the api
 export const fetchData = async (
   _data,
   _setData,

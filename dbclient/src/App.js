@@ -3,17 +3,19 @@ import "./App.css";
 import Results from "./components/Results";
 import { fetchData } from "./util/hooks";
 
+// app manages the state of the app
 function App() {
   const bottomRef = useRef(null);
   const [data, setData] = useState([]);
   const [stationId, setStationId] = useState(null);
 
+  // updates data to suit the stationId state
   useEffect(() => {
     if (stationId !== null) {
       fetchData(data, setData, stationId);
     }
   }, [stationId]);
-  // when scrolled to bottom, fetch more data
+  // scrolls to the bottom after fetching data
   useEffect(() => {
     bottomRef.current.scrollIntoView({ behavior: "smooth" });
   }, [data]);

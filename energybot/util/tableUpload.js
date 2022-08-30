@@ -1,7 +1,7 @@
 var fs = require("fs");
 var csv = require("csvtojson");
 
-// create a promise that will finish when the stream is done
+// deprecated streaming version of uploading to the database
 var uploadToTable = async (queryInterface = null, Climate) =>
   await new Promise(function (resolve, reject) {
     const stream = fs.createReadStream("2017.csv");

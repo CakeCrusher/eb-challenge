@@ -2,9 +2,14 @@
 
 ## Setup
 
-1. Run `docker-compose up`.
-2. wait 5 min max (1.5gb climate file is heavy).
-3. 🥳
+(steps 1-3 are an unforunate part of the process as the [backend/api](energybot) container was not able to mount)
+
+1. navigate to `energybot` folder `cd energybot`
+2. run `npm i`
+3. navigate back to the root folder `cd ..`
+4. Run `docker-compose up`.
+5. wait ~6min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
+6. 🥳
 
 ## What is going on?
 

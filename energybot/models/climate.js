@@ -3,6 +3,7 @@ const { sequelize } = require("../util/db");
 
 class Climate extends Model {}
 
+// create schema for the climate table
 Climate.init(
   {
     id: {

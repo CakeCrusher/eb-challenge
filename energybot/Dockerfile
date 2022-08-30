@@ -1,15 +1,12 @@
 # create a docker container for a node app
 FROM node:alpine
 # copy the app
-USER node
 WORKDIR /usr/api
-COPY --chown=node:node . .
+# copy the package.json
+COPY . .
 # download the dependencies
 RUN npm install
 # download the files
-RUN node ftp/download_files.js
-
-ENV DEBUG=api:*
-
+# RUN node ftp/download_files.js
 # start the app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
