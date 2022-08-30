@@ -30,7 +30,7 @@ function App() {
         <h2>Sebastian Sosa - Energy Bot challenge</h2>
         <SearchStation stationId={stationId} setStationId={setStationId} />
         {data.length ? null : (
-          <button onClick={() => fetchData(data, setData, stationId)}>
+          <button onClick={() => fetchData(data, setData, "")}>
             Begin fetching
           </button>
         )}
