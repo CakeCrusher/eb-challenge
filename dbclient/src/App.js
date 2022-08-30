@@ -1,45 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Results from "./components/Results";
+import { fetchData } from "./util/hooks";
 
 function App() {
-  console.log(process.env.REACT_APP_BACKEND_URL);
+  const bottomRef = useRef(null);
   const [data, setData] = useState([]);
-  const [stationId, setStationId] = useState("");
-  const fetchData = async (_data, _setData, _stationId, loadMore = false) => {
-    let result;
-
-    if (_stationId) {
-      result = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/stations/${_stationId}?offset=${_data.length}`
-      );
-    } else {
-      result = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/stations?offset=${_data.length}`
-      );
-    }
-    console.log("offset", _data.length);
-    const newData = await result.json();
-    console.log("data due to stationId", newData);
-    if (loadMore) {
-      _setData([..._data, ...newData]);
-    } else {
-      _setData(newData);
-    }
-  };
+  const [stationId, setStationId] = useState(null);
 
   useEffect(() => {
-    fetchData(data, setData, stationId);
+    if (stationId !== null) {
+      fetchData(data, setData, stationId);
+    }
   }, [stationId]);
-  console.log("stationId", stationId);
-  const fetchAll = async () => {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/stations`
-    );
-    const data = await response.json();
-    console.log(data);
-    setData(data);
-  };
+  // when scrolled to bottom, fetch more data
+  useEffect(() => {
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [data]);
 
   return (
     <div className="App">
@@ -63,7 +40,9 @@ function App() {
         </p>
         {}
         {data.length ? null : (
-          <button onClick={fetchAll}>Begin fetching</button>
+          <button onClick={() => fetchData(data, setData, stationId)}>
+            Begin fetching
+          </button>
         )}
         <Results data={data} setStationId={setStationId} />
         {data.length ? (
@@ -71,6 +50,7 @@ function App() {
             Load More
           </button>
         ) : null}
+        <div ref={bottomRef} />
       </header>
     </div>
   );

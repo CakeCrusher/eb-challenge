@@ -24,6 +24,11 @@
   color: #555555;
 }
 
+/* have every nth child with a different style css */
+tr:nth-child(even) {
+  background-color: #dfdfdf;
+}
+
 .App-link {
   color: #61dafb;
 }
