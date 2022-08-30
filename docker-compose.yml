@@ -31,6 +31,17 @@ services:
       - db
     volumes:
       - "./energybot:/usr/api"
+  client:
+    stdin_open: true
+    environment:
+      CHOKIDAR_USEPOLLING: true
+      BACKEND_URL: http://api:3001
+    ports:
+      - 3000:3000
+    build:
+      context: ./dbclient
+    volumes:
+      - ./dbclient:/app
 
 volumes:
   db:
