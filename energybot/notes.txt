@@ -1,0 +1,13 @@
+readme_ftp=ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt
+data_ftp=ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2017.csv.gz
+plan
+  ftp download the readme files
+  ftp download the data files
+  migration for creating the table
+  migration for uploading the data
+  no graphql since it is a rest api
+  build a sequelize api
+  deploy database on aws
+  dockerize the everything leading up to the api
+  create another 
+  create
