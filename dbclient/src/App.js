@@ -8,13 +8,11 @@ import SearchStation from "./components/SearchStation";
 function App() {
   const bottomRef = useRef(null);
   const [data, setData] = useState([]);
-  const [stationId, setStationId] = useState(null);
+  const [stationId, setStationId] = useState("");
 
   // updates data to suit the stationId state
   useEffect(() => {
-    if (stationId !== null) {
-      fetchData(data, setData, stationId);
-    }
+    fetchData(data, setData, stationId);
   }, [stationId]);
   // scrolls to the bottom after fetching data
   useEffect(() => {
