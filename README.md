@@ -10,7 +10,7 @@
 4. Once finished, navigate back to the root folder `cd ..`
 5. Run `docker-compose up`.
 6. wait ~6min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
-7. 🥳
+7. navigate to http://localhost:3000 and start browsing 🥳.
 
 ## What is going on?
 
