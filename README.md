@@ -4,12 +4,13 @@
 
 (steps 1-3 are an unforunate part of the process as the [backend/api](energybot) container was not able to mount)
 
-1. navigate to `energybot` folder `cd energybot`
-2. run `npm i`
-3. navigate back to the root folder `cd ..`
-4. Run `docker-compose up`.
-5. wait ~6min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
-6. 🥳
+1. navigate to `energybot` folder `cd energybot`.
+2. run `npm i`.
+3. run `npm run download`
+4. Once finished, navigate back to the root folder `cd ..`
+5. Run `docker-compose up`.
+6. wait ~6min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
+7. 🥳
 
 ## What is going on?
 
@@ -21,7 +22,15 @@
 6. The [client](dbclient) is ran which provides a simple UI to utilize MOST features provided by the api.
 7. You can select to see a specific station or all stations.
 8. You may continue loading to your hearts content (within the scope of what your looking for) with the load more button at the bottom.
-9. Enjoy the 39 million rows 🤖.
+9. Enjoy the 39 million rows 🤖!
+
+## Next Steps
+
+0. Ensure all of it runs in a simple `docker-compose up` command.
+1. Add typing with typescript.
+2. Add testing with jest.
+3. Integrate CI/CD.
+4. Modularize the downloading process.
 
 ## Biggest Challenges
 
