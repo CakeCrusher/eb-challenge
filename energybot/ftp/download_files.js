@@ -38,6 +38,7 @@ ftp("ftp.ncdc.noaa.gov", (ftp) => {
   });
 });
 
+// download the daily/readme.txt
 ftp("ftp.ncdc.noaa.gov", (ftp) => {
   ftp.get("/pub/data/ghcn/daily/readme.txt", function (err, stream) {
     if (err) {
@@ -58,6 +59,7 @@ ftp("ftp.ncdc.noaa.gov", (ftp) => {
   });
 });
 
+// download the by_year/readme-by_year.txt for more precise information
 ftp("ftp.ncdc.noaa.gov", (ftp) => {
   ftp.get(
     "/pub/data/ghcn/daily/by_year/readme-by_year.txt",
@@ -81,6 +83,7 @@ ftp("ftp.ncdc.noaa.gov", (ftp) => {
   );
 });
 
+// downaload the 2017.csv.gz file then unzip it
 ftp("ftp.ncdc.noaa.gov", (ftp) => {
   ftp.get("/pub/data/ghcn/daily/by_year/2017.csv.gz", function (err, stream) {
     if (err) {

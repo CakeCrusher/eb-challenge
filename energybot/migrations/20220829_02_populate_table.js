@@ -5,6 +5,8 @@ const { sequelize } = require("../util/db");
 module.exports = {
   up: async ({ context: queryInterface }) => {
     // await uploadToTable(queryInterface, Climate);
+    // get current working directory
+    const cwd = process.cwd();
     await sequelize.query(`COPY climates(
       station_id,
       date,
@@ -15,7 +17,7 @@ module.exports = {
       s_flag,
       obs_time
     )
-    FROM 'C:/Projects/energybot/2017.csv'
+    FROM '${cwd}/2017.csv'
     DELIMITER ','
     CSV HEADER;`);
   },

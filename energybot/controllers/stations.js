@@ -8,8 +8,9 @@ router.get("/", async (req, res) => {
   try {
     const climates = await Climate.findAll({
       limit: 10,
-      offset: 0,
+      offset: parseInt(req.query.offset) || 0,
     });
+    console.log("offset", parseInt(req.query.offset) || 0);
     res.json(climates);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -30,9 +31,10 @@ router.get("/:id", async (req, res) => {
 
     const climate = await Climate.findAll({
       limit: 10,
-      offset: req.query.offset || 0,
+      offset: parseInt(req.query.offset) || 0,
       where,
     });
+    console.log("offset", parseInt(req.query.offset) || 0);
     res.json(climate);
   } catch (err) {
     res.status(500).json({ message: err.message });
