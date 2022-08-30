@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Results from "./components/Results";
 import { fetchData } from "./util/hooks";
+import SearchStation from "./components/SearchStation";
 
 // app manages the state of the app
 function App() {
@@ -29,18 +30,7 @@ function App() {
           alt="logo"
         />
         <h2>Sebastian Sosa - Energy Bot challenge</h2>
-        <p>
-          Currently searching:{" "}
-          {stationId ? (
-            <>
-              {`station ${stationId}`}{" "}
-              <button onClick={() => setStationId("")}>X</button>
-            </>
-          ) : (
-            "all stations"
-          )}
-        </p>
-        {}
+        <SearchStation stationId={stationId} setStationId={setStationId} />
         {data.length ? null : (
           <button onClick={() => fetchData(data, setData, stationId)}>
             Begin fetching
