@@ -20,7 +20,7 @@ function Results({ data, setStationId }) {
         </thead>
         <tbody>
           {data.map((item) => (
-            <Result dataItem={item} setStationId={setStationId} />
+            <Result key={item.id} dataItem={item} setStationId={setStationId} />
           ))}
         </tbody>
       </table>
