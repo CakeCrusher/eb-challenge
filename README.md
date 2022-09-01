@@ -2,11 +2,15 @@
 
 ## Setup
 
-(steps 1-3 are an unforunate part of the process as the [backend/api](energybot) container was not able to mount)
+1. Run `docker-compose up`.
+2. wait ~8min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
+3. navigate to http://localhost:3000 and start browsing 🥳.
+
+### For computers with less ram than 8gb follow the steps below
 
 1. run `npm i`.
 2. run `npm run download`
-3. Run `docker-compose up`.
+3. Run `docker-compose -f docker-compose-mini.yml up`.
 4. wait ~8min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
 5. navigate to http://localhost:3000 and start browsing 🥳.
 6. From here on, you can easily start up the application with `docker-compose up`.
