@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "download": "node ftp/download_files.js",
     "start": "node index.js",
     "rollback": "node util/rollback.js"
   },

@@ -3,9 +3,10 @@ FROM node:alpine
 # copy the app
 WORKDIR /usr/api
 # copy the package.json
-COPY . .
+COPY package.json /usr/api
 # download the dependencies
 RUN npm install
+COPY . .
 # download the files
 # RUN node ftp/download_files.js
 # start the app
