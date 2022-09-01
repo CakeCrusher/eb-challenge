@@ -8,8 +8,8 @@
 
 ### For computers with less ram than 8gb follow the steps below
 
-1. run `npm i`.
-2. run `npm run download`
+1. navigate to the api with `cd energybot` and run `npm i`.
+2. run `npm run download` and move back a directory with `cd ..`
 3. Run `docker-compose -f docker-compose-mini.yml up`.
 4. wait ~8min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
 5. navigate to http://localhost:3000 and start browsing 🥳.
