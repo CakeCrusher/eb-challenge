@@ -2,12 +2,10 @@
 FROM node:alpine
 # copy the app
 WORKDIR /usr/api
-# copy the package.json
-COPY package.json /usr/api
+COPY . .
 # download the dependencies
 RUN npm install
-COPY . .
 # download the files
-# RUN node ftp/download_files.js
+RUN npm run download
 # start the app
 CMD ["npm", "run", "start"]

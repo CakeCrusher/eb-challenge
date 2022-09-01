@@ -4,8 +4,7 @@
   "description": "(steps 1-3 are an unforunate part of the process as the [backend/api](energybot) container was not able to mount)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "download": "node ftp/download.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

@@ -11,7 +11,7 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
-      - ./energybot:/usr/api
+      - dataset:/usr/api
   api:
     container_name: ebapi
     build:
@@ -27,7 +27,7 @@ services:
       DB_PASSWORD: postgres
       DB_NAME: postgres
     volumes:
-      - ./energybot:/usr/api
+      - dataset:/usr/api
   client:
     stdin_open: true
     environment:
@@ -41,3 +41,4 @@ services:
 
 volumes:
   db:
+  dataset:

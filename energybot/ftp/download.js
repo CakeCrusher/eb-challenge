@@ -15,7 +15,7 @@ const downloadFilesFromNOAA = async () => {
     "/pub/data/ghcn/daily/by_year/2017.csv.gz",
     "./2017.csv.gz"
   );
-  await ftp.unzip("./2017.csv.gz", "./energybot/2017.csv");
+  await ftp.unzip("./2017.csv.gz", "./2017.csv");
 
   ftp.end();
 };
