@@ -2,7 +2,15 @@
 
 ## Setup
 
+### React
+
 1. Run `docker-compose up`.
+2. wait ~8min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
+3. navigate to http://localhost:3000 and start browsing 🥳.
+
+### Vue
+
+1. Run `docker-compose -f docker-compose-vue.yml up`.
 2. wait ~8min while the climate data is uploaded to the database (1.5gb climate file is heavy). Once its finished you will see `ebapi | Connection has been established successfully.`
 3. navigate to http://localhost:3000 and start browsing 🥳.
 

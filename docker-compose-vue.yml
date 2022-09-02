@@ -28,16 +28,16 @@ services:
       DB_NAME: postgres
     volumes:
       - dataset:/usr/api
-  client:
+  client-vue:
     stdin_open: true
     environment:
       VUE_APP_BACKEND_URL: http://localhost:3001
     ports:
-      - 3000:3000
+      - 3000:8080
     build:
-      context: ./dbclient
+      context: ./dbclient-vue
     volumes:
-      - ./dbclient:/app
+      - ./dbclient-vue:/app
 
 volumes:
   db:
