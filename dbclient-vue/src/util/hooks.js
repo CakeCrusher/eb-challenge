@@ -6,14 +6,15 @@ export const fetchData = async (
   loadMore = false
 ) => {
   let result;
-
+  const BACKEND_URL_TEMP = "http://localhost:3001";
+  console.log("backend url: ", BACKEND_URL_TEMP);
   if (_stationId) {
     result = await fetch(
-      `${process.env.VUE_APP_BACKEND_URL}/api/stations/${_stationId}?offset=${_data.length}`
+      `${BACKEND_URL_TEMP}/api/stations/${_stationId}?offset=${_data.length}`
     );
   } else {
     result = await fetch(
-      `${process.env.VUE_APP_BACKEND_URL}/api/stations?offset=${_data.length}`
+      `${BACKEND_URL_TEMP}/api/stations?offset=${_data.length}`
     );
   }
   console.log("offset", _data.length);
