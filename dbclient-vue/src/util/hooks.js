@@ -9,18 +9,18 @@ export const fetchData = async (
 
   if (_stationId) {
     result = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/stations/${_stationId}?offset=${_data.length}`
+      `${process.env.VUE_APP_BACKEND_URL}/api/stations/${_stationId}?offset=${_data.length}`
     );
   } else {
     result = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/stations?offset=${_data.length}`
+      `${process.env.VUE_APP_BACKEND_URL}/api/stations?offset=${_data.length}`
     );
   }
   console.log("offset", _data.length);
   let newData = await result;
   console.log("data due to stationId", newData);
+  console.log("data due to stationId body", newData.body);
   newData = await newData.json();
-  console.log("data due to stationId body", newData);
   if (loadMore) {
     _setData([..._data, ...newData]);
   } else {

@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - dataset:/usr/api
+  api:
+    container_name: ebapi
+    build:
+      context: ./energybot
+    depends_on:
+      - db
+    ports:
+      - 3001:3001
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+    volumes:
+      - dataset:/usr/api
+  client:
+    stdin_open: true
+    environment:
+      VUE_APP_BACKEND_URL: http://localhost:3001
+    ports:
+      - 3000:3000
+    build:
+      context: ./dbclient
+    volumes:
+      - ./dbclient:/app
+
+volumes:
+  db:
+  dataset:
