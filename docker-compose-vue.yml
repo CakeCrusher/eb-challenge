@@ -32,8 +32,9 @@ services:
     stdin_open: true
     environment:
       VUE_APP_BACKEND_URL: http://localhost:3001
+      NODE_ENV: development
     ports:
-      - 3000:8080
+      - 3000:80
     build:
       context: ./dbclient-vue
     volumes:
